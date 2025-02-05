@@ -3,7 +3,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
+    font-family: Inter, sans-serif;
 }
 
 html {
@@ -11,26 +11,30 @@ html {
     color: white;
 }
 
-body {
-    min-height: 100vh;
+button {
+    padding: 1rem 2.5rem;
+    border-radius: 2.625rem;
+    color: #FFF;
+    background-color: #E6533C;
 }
-
-/* Header Styles */
+/* Header Start */
 header {
-    position: sticky;
+    position: fixed;
     top: 0;
-    background: rgba(0, 0, 0, 0.9);
-    padding: 1rem;
+    left: 0;
+    width: 100%;
+    padding: 1rem 2rem;
+    background: linear-gradient(180deg, #111 0%, rgba(119, 119, 119, 0.00) 100%);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 100;
+    z-index: 1000;
 }
 
 .logo {
-    color: #ff6b6b;
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: bold;
+    color: #E6533C;
 }
 
 nav {
@@ -39,32 +43,83 @@ nav {
 }
 
 nav ul {
-    display: none;
+    display: flex;
+    gap: 2rem;
     list-style: none;
+    background: rgba(18, 18, 18, 0.9);
+    border-radius: 2rem;
+    padding: 0.5rem 1rem;
 }
 
-nav .fa-bars {
-    display: block;
+nav ul li {
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    transition: color 0.3s ease;
+}
+
+/* nav ul li:hover {
+    color: #E6533C;
+} */
+
+nav ul li:first-child {
+    background-color: #E6533C;
+    border-radius: 2rem;
+}
+
+/* Hide hamburger menu icon by default */
+.fas.fa-bars {
+    display: none;
     font-size: 1.5rem;
     cursor: pointer;
 }
 
-/* Main Content Styles */
-main {
-    padding: 1rem;
+/* Media query for medium screens */
+@media screen and (max-width: 768px) {
+    .logo {
+        font-size: 1.75rem;
+    }
+    
+    nav ul li {
+        padding: 0.5rem 0.75rem;
+    }
 }
 
+/* Media query for small screens */
+@media screen and (max-width: 576px) {
+    .logo {
+        font-size: 1.5rem;
+    }
+    
+    nav ul {
+        display: none;
+    }
+    
+    .fas.fa-bars {
+        display: block;
+        color: white;
+    }
+}
+/* Header End */
+
+/* Info Start */
 .intro {
+    width: 100%;
+    min-height: 100vh;
+    padding: 7rem 2rem 2rem;
     display: flex;
-    flex-direction: column;
     gap: 2rem;
-    padding: 1rem 0;
+    background: linear-gradient(180deg, #111 0%, rgba(119, 119, 119, 0.00) 100%);;
+}
+
+.texts {
+    flex: 1;
+    padding-top: 4rem;
 }
 
 .texts h1 {
-    font-size: 2.5rem;
+    font-size: 4rem;
     line-height: 1.2;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
 }
 
 .texts h1 span {
@@ -72,7 +127,8 @@ main {
 }
 
 .texts p {
-    color: #aaa;
+    color: #888;
+    max-width: 450px;
     margin-bottom: 2rem;
     line-height: 1.6;
 }
@@ -80,170 +136,416 @@ main {
 .buttons {
     display: flex;
     gap: 1rem;
-    flex-wrap: wrap;
 }
 
-.buttons button {
-    padding: 0.8rem 1.5rem;
-    border-radius: 25px;
-    border: none;
-    cursor: pointer;
-    font-weight: bold;
-}
-
-.buttons button:first-child {
-    background: #ff6b6b;
-    color: white;
-}
-
-.buttons button:last-child {
-    background: transparent;
-    border: 1px solid white;
-    color: white;
+.buttons button:nth-child(2) {
+    background-color: transparent;
+    border: 1px solid #333;
 }
 
 .man {
+    flex: 1;
     position: relative;
     display: flex;
     justify-content: center;
-    align-items: center;
-    margin-top: 2rem;
 }
 
 .man img {
     max-width: 100%;
     height: auto;
+    object-fit: cover;
+}
+
+.freeWorkoutVideos, .videoTutorial {
+    position: absolute;
+    background: rgba(18, 18, 18, 0.9);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    backdrop-filter: blur(10px);
 }
 
 .freeWorkoutVideos {
-    background: rgba(0, 0, 0, 0.7);
-    padding: 1rem;
-    border-radius: 10px;
-    position: absolute;
-    backdrop-filter: blur(5px);
-}
-
-.freeWorkoutVideos:first-of-type {
-    top: 10%;
-    right: 0;
-}
-
-.freeWorkoutVideos h3 {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-}
-
-.freeWorkoutVideos p {
-    color: #aaa;
-    font-size: 0.9rem;
-}
-
-.fa-play {
-
-    color: white;
-    background-color: #ff6b6b;
-    padding: 10px;
-    font-size: 2rem;
-    border-radius: 50%;
+    top: 2rem;
+    right: 1rem;
 }
 
 .videoTutorial {
-    background: rgba(0, 0, 0, 0.7);
-    padding: 1rem;
-    border-radius: 10px;
-    position: absolute;
-    backdrop-filter: blur(5px);
-    bottom: 20%;
-    left: 0;
+    bottom: 4rem;
+    left: 1rem;
     display: flex;
     align-items: center;
     gap: 1rem;
 }
 
-.videoTutorial .text {
-    color: #fff;
+.fa-play {
+    color: #E6533C;
+    font-size: 1.2rem;
 }
 
-.videoTutorial h3 {
+.freeWorkoutVideos h3, .videoTutorial h3 {
     font-size: 1.5rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.25rem;
 }
 
-.videoTutorial p {
-    color: #aaa;
-    font-size: 0.9rem;
+.freeWorkoutVideos p, .videoTutorial p {
+    color: #888;
+    font-size: 0.875rem;
 }
 
-/* Medium Screen Styles */
-@media (min-width: 768px) {
-    nav .fa-bars {
-        display: none;
-    }
-
-    nav ul {
-        display: flex;
-        gap: 2rem;
-    }
-
-    nav ul li {
-        cursor: pointer;
-    }
-
-    nav ul li:first-child {
-        color: #ff6b6b;
-    }
-
-    .texts h1 {
-        font-size: 3rem;
-    }
-
-    .man {
-        margin-top: 3rem;
-    }
-}
-
-/* Large Screen Styles */
-@media (min-width: 1024px) {
-    header {
-        padding: 1.5rem 5%;
-    }
-
-    main {
-        padding: 2rem 5%;
-    }
-
+/* Medium screens */
+@media screen and (max-width: 768px) {
     .intro {
-        flex-direction: row;
-        align-items: center;
-        gap: 4rem;
+        flex-direction: column;
+        padding-top: 5rem;
     }
 
     .texts {
-        flex: 1;
-    }
-
-    .texts h1 {
-        font-size: 4rem;
+        padding-top: 2rem;
     }
 
     .man {
-        flex: 1;
-        margin-top: 0;
+        margin-top: 2rem;
+    }
+}
+
+/* Small screens */
+@media screen and (max-width: 576px) {
+    .texts h1 {
+        font-size: 2.5rem;
     }
 
-    .freeWorkoutVideos:first-of-type {
-        top: 15%;
-        right: -5%;
+    .freeWorkoutVideos {
+        top: 1rem;
+        right: 0.5rem;
     }
 
     .videoTutorial {
-        bottom: 25%;
-        left: -5%;
+        bottom: 2rem;
+        left: 0.5rem;
+    }
+}
+/* Info End */
+/* Change Your Habits Start */
+.changeYourHabits {
+    width: 80%;
+    margin: 0 auto;
+    padding: 4rem 0;
+}
+
+.heading {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.heading h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.heading p {
+    color: #888;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.content {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+}
+
+.content > div {
+    text-align: center;
+}
+
+.content img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1.5rem;
+}
+
+.content h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+}
+
+.content p {
+    color: #888;
+    font-size: 0.875rem;
+    line-height: 1.6;
+}
+
+/* Medium screens */
+@media screen and (max-width: 768px) {
+    .content {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 3rem;
+    }
+    
+    .content img {
+        width: 180px;
+        height: 180px;
     }
 }
 
-/* Hover Effects */
-.buttons button:hover {
-    transform: scale(1.05);
-    transition: transform 0.2s ease;
+/* Small screens */
+@media screen and (max-width: 576px) {
+    .changeYourHabits {
+        width: 90%;
+    }
+    
+    .heading h2 {
+        font-size: 2rem;
+    }
+    
+    .content {
+        grid-template-columns: 1fr;
+        gap: 4rem;
+    }
+    
+    .content img {
+        width: 160px;
+        height: 160px;
+    }
 }
+/* Change Your Habits End */
+/* Run Extra Mile Start*/
+.runExtraMile {
+    width: 80%;
+    margin: 0 auto;
+    padding: 3rem;
+    background-color: #121212;
+    border-radius: 1.125rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+}
+
+.runExtraMile .text {
+    width: 50%;
+}
+
+.runExtraMile h2 {
+    font-size: 3rem;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+}
+
+.runExtraMile p {
+    color: #888;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    max-width: 450px;
+}
+
+.runExtraMile img {
+    width: 50%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 1.125rem;
+}
+
+/* Medium screens */
+@media screen and (max-width: 768px) {
+    .runExtraMile {
+        width: 95%;
+        padding: 2rem;
+    }
+
+    .runExtraMile h2 {
+        font-size: 2.5rem;
+    }
+
+    .runExtraMile .text {
+        width: 45%;
+    }
+
+    .runExtraMile img {
+        width: 45%;
+        height: 350px;
+    }
+}
+
+/* Small screens */
+@media screen and (max-width: 576px) {
+    .runExtraMile {
+        flex-direction: column;
+        padding: 2rem 1.5rem;
+    }
+
+    .runExtraMile .text {
+        width: 100%;
+    }
+
+    .runExtraMile h2 {
+        font-size: 2rem;
+    }
+
+    .runExtraMile p {
+        margin: 0 auto 2rem;
+    }
+
+    .runExtraMile img {
+        width: 100%;
+        height: 300px;
+    }
+}
+/* Run Extra Mile End */
+/* Training And Excercise Start */
+.trainingsAndExcercises {
+    width: 80%;
+    margin: 0 auto;
+    padding: 4rem 0;
+}
+
+.heading {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.heading h2 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.heading p {
+    color: #888;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.images .row1,
+.images .row2 {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.row1 > div,
+.row2 > div {
+    position: relative;
+    flex: 1;
+    height: 300px;
+    overflow: hidden;
+    border-radius: 0.5rem;
+}
+
+.row1 img,
+.row2 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Overlay colors */
+.excercise1::after {
+    background: rgba(0, 255, 191, 0.3);
+}
+
+.excercise2::after {
+    background: rgba(255, 0, 0, 0.3);
+}
+
+.excercise3::after {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.excercise4::after {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.excercise5::after {
+    background: rgba(191, 255, 0, 0.3);
+}
+
+.excercise6::after {
+    background: rgba(0, 191, 255, 0.3);
+}
+
+/* Common overlay styles */
+.row1 > div::after,
+.row2 > div::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+/* Text overlay styles */
+.row1 h5,
+.row2 h5 {
+    position: absolute;
+    color: white;
+    padding: 1rem;
+    font-size: 1rem;
+    z-index: 1;
+    max-width: 80%;
+}
+
+/* Position text overlays */
+.excercise1 h5,
+.excercise3 h5,
+.excercise5 h5,
+.excercise6 h5 {
+    bottom: 0;
+    left: 0;
+}
+
+.excercise2 h5 {
+    top: 0;
+    left: 0;
+}
+
+.excercise4 h5 {
+    top: 0;
+    right: 0;
+    text-align: right;
+}
+
+/* Medium screens */
+@media screen and (max-width: 768px) {
+    .trainingsAndExcercises {
+        width: 95%;
+    }
+
+    .heading h2 {
+        font-size: 2.5rem;
+    }
+
+    .row1 > div,
+    .row2 > div {
+        height: 250px;
+    }
+}
+
+/* Small screens */
+@media screen and (max-width: 576px) {
+    .heading h2 {
+        font-size: 2rem;
+    }
+
+    .excercise3,
+    .excercise6 {
+        display: none;
+    }
+
+    .row1 > div,
+    .row2 > div {
+        height: 200px;
+    }
+
+    .row1 h5,
+    .row2 h5 {
+        font-size: 0.875rem;
+    }
+}
+/* Training And Excercise End */
