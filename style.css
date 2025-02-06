@@ -48,6 +48,7 @@ nav ul {
     list-style: none;
     background: rgba(18, 18, 18, 0.9);
     border-radius: 2rem;
+    outline: 1px solid rgba(255, 255, 255, 0.3);
     padding: 0.5rem 1rem;
 }
 
@@ -178,8 +179,10 @@ nav ul li:first-child {
 }
 
 .fa-play {
-    color: #E6533C;
-    font-size: 1.2rem;
+    background: #E6533C;
+    color: #FFF;
+    padding: 0.8rem;
+    border-radius: 50%;
 }
 
 .freeWorkoutVideos h3, .videoTutorial h3 {
@@ -549,3 +552,346 @@ nav ul li:first-child {
     }
 }
 /* Training And Excercise End */
+
+/* BMI-Calculator Start */
+.BMI-Calculator {
+    width: 100%;
+    padding: 4rem 0;
+    
+}
+
+.BMI-Calculator .heading {
+    width: 50%;
+    margin: 0 auto;
+    text-align: left;
+    margin-bottom: 4rem;
+}
+
+.BMI-Calculator h2 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.BMI-Calculator .heading p {
+    color: #888;
+    margin-left: 0;
+    margin-right: 0;
+    line-height: 1.6;
+}
+
+.BMI-chart-calculator {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    padding: 2rem;
+    background-color: #121212;
+}
+
+.chart {
+    width: 25%;
+}
+
+.calculator {
+    width: 45%;
+}
+
+.chart h3,
+.calculator h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.calculator p {
+    color: #888;
+    margin-bottom: 2rem;
+}
+
+/* Table Styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    overflow: hidden;
+}
+
+th, td {
+    padding: 1rem;
+    text-align: left;
+    border: 1px solid #333;
+}
+
+th {
+    font-weight: 600;
+}
+
+td {
+    color: #888;
+}
+
+/* Form Styles */
+form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+input, select {
+    width: calc(50% - 0.5rem);
+    padding: 1rem;
+    background-color: #1A1A1A;
+    border: none;
+    border-radius: 0.5rem;
+    color: white;
+}
+
+select{
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23888888' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: calc(100% - 20px) center;
+    padding-right: 40px; 
+}
+
+select[id="activityFactor"] {
+    width: 100%;
+}
+/* Medium & Small screens */
+@media screen and (max-width: 768px) {
+    .BMI-chart-calculator {
+        flex-direction: column;
+        gap: 3rem;
+    }
+
+    .chart, .calculator {
+        width: 100%;
+    }
+
+    .BMI-Calculator h2 {
+        font-size: 2rem;
+    }
+}
+
+/* BMI-Calculator End */
+
+/* Our Team Start */
+.ourTeam {
+    width: 80%;
+    margin: 0 auto;
+    padding: 4rem 0;
+}
+
+.ourTeam .heading {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.ourTeam .heading h2 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.ourTeam .heading p {
+    color: #888;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.ourTeam > div:nth-child(2) {
+    width: 80%;
+    margin: 0 auto;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.10);
+    border-radius: 1.125rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.ourTeam > div:nth-child(2) > div {
+    position: relative;
+    aspect-ratio: 1;
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+.ourTeam > div:nth-child(2) > div img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.ourTeam > div:nth-child(2) > div::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+}
+
+.ourTeam > div:nth-child(2) > div h5 {
+    position: absolute;
+    bottom: 2rem;
+    left: 1.5rem;
+    color: white;
+    font-size: 1.25rem;
+    z-index: 1;
+}
+
+.ourTeam > div:nth-child(2) > div p {
+    position: absolute;
+    bottom: 1rem;
+    left: 1.5rem;
+    color: #888;
+    font-size: 0.875rem;
+    z-index: 1;
+}
+
+/* Medium screens */
+@media screen and (max-width: 768px) {
+    .ourTeam > div:nth-child(2) {
+        width: 90%;
+        gap: 1rem;
+    }
+
+    .ourTeam .heading h2 {
+        font-size: 2.5rem;
+    }
+}
+
+/* Small screens */
+@media screen and (max-width: 576px) {
+    .ourTeam {
+        width: 90%;
+    }
+
+    .ourTeam > div:nth-child(2) {
+        width: 96%;
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .ourTeam .heading h2 {
+        font-size: 2rem;
+    }
+}
+/* Our Team End */
+
+/* Footer Start */
+footer {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.10);
+    padding: 4rem 0 2rem;
+}
+
+footer .border {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 3rem;
+}
+
+.footer .text {
+    width: 40%;
+}
+
+.footer .text h1 {
+    font-size: 2.5rem;
+    color: #E6533C;
+    font-style: italic;
+    margin-bottom: 1.5rem;
+}
+
+.footer .text p {
+    color: #888;
+    line-height: 1.6;
+}
+
+.footer .middle,
+.footer .right {
+    width: 20%;
+}
+
+.footer h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.footer ul {
+    list-style: none;
+}
+
+.footer ul li {
+    color: #888;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.footer ul li:hover {
+    color: #E6533C;
+}
+
+footer hr {
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 2rem;
+}
+
+.copyright {
+    text-align: center;
+    color: #888;
+    font-size: 0.875rem;
+}
+
+/* Medium screens */
+@media screen and (max-width: 768px) {
+    footer .border {
+        width: 90%;
+    }
+
+    .footer {
+        flex-wrap: wrap;
+        gap: 2rem;
+    }
+
+    .footer .text {
+        width: 100%;
+    }
+
+    .footer .middle,
+    .footer .right {
+        width: 45%;
+    }
+}
+
+/* Small screens */
+@media screen and (max-width: 576px) {
+    footer .border {
+        width: 95%;
+    }
+
+    .footer {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .footer .text,
+    .footer .middle,
+    .footer .right {
+        width: 100%;
+    }
+
+    .footer .text h1 {
+        font-size: 2rem;
+    }
+}
+/* Footer End */
